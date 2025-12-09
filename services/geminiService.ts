@@ -1,13 +1,21 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { Coordinates } from '../types';
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+let aiInstance: GoogleGenAI | null = null;
+
+const getAiClient = () => {
+  if (!aiInstance) {
+    aiInstance = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  }
+  return aiInstance;
+};
 
 /**
  * Generates a cloud of 3D coordinates representing a specific shape using Gemini.
  */
 export const generateParticleShape = async (description: string, count: number): Promise<Coordinates[]> => {
   try {
+    const ai = getAiClient();
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash',
       contents: `Generate a highly aesthetic 3D point cloud shape representing: "${description}". 

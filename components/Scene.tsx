@@ -5,6 +5,20 @@ import * as THREE from 'three';
 import { ParticleConfig, ShapeType, HandData } from '../types';
 import { generateParticleShape } from '../services/geminiService';
 
+// Add type definitions for React Three Fiber intrinsic elements
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      points: any;
+      bufferGeometry: any;
+      bufferAttribute: any;
+      pointsMaterial: any;
+      color: any;
+      fog: any;
+    }
+  }
+}
+
 // Predefined shape generators
 const getShapeCoordinates = (type: ShapeType, count: number): Float32Array => {
   const coords = new Float32Array(count * 3);
