@@ -1,0 +1,7 @@
+{
+  "name": "Hand-Particle - Crystal1",
+  "description": "A real-time 3D particle system controlled by hand gestures. Use your hand to expand/contract the universe, and use Gemini AI to generate unique particle shapes.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
