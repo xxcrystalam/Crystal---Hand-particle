@@ -1,3 +1,10 @@
-// This file is disabled because the application has been consolidated into index.html for portability.
-// Please open index.html to run the application.
-console.log("App running in standalone mode via index.html");
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import './index.css';
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
